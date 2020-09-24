@@ -5,7 +5,7 @@
                 <h5 class="card-title">{{ productTitle }}</h5>
                 <p class="card-text">{{ productDescription }}</p>
                 <div *ngIf="reviews; else noreviews">
-                    <p class="card-text"><b>Recensioni: </b> <a href="#"> {{ reviews.length }} recensioni</a></p>
+                    <p class="card-text"><b>Recensioni: </b> {{ reviews.length }} recensioni</p>
                 </div>
                 <ng-template #noreviews><b>Recensioni:</b> nessuna recensione</ng-template>   
             </div>
@@ -24,6 +24,13 @@
             <div class="col-md-2">
                 <button type="button" class="btn btn-danger" (click)="deleteProduct()">Elimina Prodotto</button>
             </div>
+        </div>
+        <div class="row">
+            <ng-container *ngIf="reviews">
+                <app-card-review *ngFor="let review of reviews"
+                    [reviews]="review"
+                ></app-card-review>
+            </ng-container>
         </div>
     </div>
 </div>
