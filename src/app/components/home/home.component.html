@@ -1,0 +1,17 @@
+<div *ngIf="(API.getStoreData$ | async) as storeData">
+  <h1>{{ storeData[0].data.name }}</h1>
+  <div class="separator"></div>
+  <app-new-product></app-new-product>
+  <div *ngIf="(API.getProductsData$ | async) as productsData">
+    <app-card-product *ngFor="let product of productsData"
+      [productId]="product.id"
+      [productTitle]="product.data.title"
+      [productDescription]="product.data.description"
+      [productPrice]="product.data.price"
+      [category]="product.data.category"
+      [employee]="product.data.employee"
+      [reviews]="product.data.reviews"
+    ></app-card-product>
+  </div>
+</div>
+<app-spinner *ngIf="API.showSpinner"></app-spinner>

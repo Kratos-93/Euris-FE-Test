@@ -1,0 +1,29 @@
+<div class="card card-background" *ngIf="showProduct">
+    <div class="card-body">
+        <div class="row">
+            <div class="col-md-4">
+                <h5 class="card-title">{{ productTitle }}</h5>
+                <p class="card-text">{{ productDescription }}</p>
+                <div *ngIf="reviews; else noreviews">
+                    <p class="card-text"><b>Recensioni: </b> <a href="#"> {{ reviews.length }} recensioni</a></p>
+                </div>
+                <ng-template #noreviews><b>Recensioni:</b> nessuna recensione</ng-template>   
+            </div>
+            <div class="col-md-2 text-center">
+                <h5 class="card-title">Prezzo</h5>
+                <p class="card-text">{{ productPrice  | currency: 'EUR' }}</p>
+            </div>
+            <div class="col-md-2 text-center">
+                <h5 class="card-title">Categoria</h5>
+                <p class="card-text">{{ category }}</p>
+            </div>
+            <div class="col-md-2 text-center">
+                <h5 class="card-title">Addetto</h5>
+                <p class="card-text">{{ employee }}</p>
+            </div>
+            <div class="col-md-2">
+                <button type="button" class="btn btn-danger" (click)="deleteProduct()">Elimina Prodotto</button>
+            </div>
+        </div>
+    </div>
+</div>

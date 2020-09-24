@@ -1,16 +1,27 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
+import { FormsModule } from '@angular/forms';
+import { HttpClientModule } from '@angular/common/http';
 
 import { AppComponent } from './app.component';
+import { HomeComponent } from './components/home/home.component';
+import { CardProductComponent } from './components/card-product/card-product.component';
+import { SpinnerComponent } from './components/spinner/spinner.component';
+import { NewProductComponent } from './components/new-product/new-product.component';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    HomeComponent,
+    CardProductComponent,
+    SpinnerComponent,
+    NewProductComponent
   ],
   imports: [
-    BrowserModule
+    BrowserModule,
+    FormsModule,
+    HttpClientModule
   ],
-  providers: [],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
